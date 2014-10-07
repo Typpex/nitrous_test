@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+%html
+%head
+  %title Scamsearch
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+%body
+  .splash-container
+  .splash
+    %h1.splash-head
+      =link_to "LOGIN", admin_scammers_path
+    %p
+      %a.pure-button.pure-button-primary Copyright

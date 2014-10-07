@@ -1,0 +1,21 @@
+= form_for([:admin, @scammer]) do |f|
+  - if @scammer.errors.any?
+    #error_explanation
+      %h2= pluralize(@scammer.errors.count, "error")
+      -@scammer.errors.full_messages.each do |message|
+        = message
+        
+  =f.label :name
+  =f.text_field :name
+  %br
+  =f.label :licence
+  =f.text_field :licence
+  %br
+  =f.label :sexual_orientation
+  =select_tag :sexual_orientation, options_for_select([ "straight","bi-sexual", "etc.." ], "Sexual orientation")
+  %br
+  =f.label :birthday
+  =f.date_select :birthday,  order: [:day, :month, :year]
+  .actions
+    = f.submit
+  

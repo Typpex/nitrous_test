@@ -1,0 +1,28 @@
+=content_for :page_title do
+  Listing scammers
+  =surround '(',')' do 
+    =Scammer.count
+
+=content_for :page_subtitle do
+  Here you can browse through the list of scammer already validated.
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Licence
+      %th Sexual Orientation
+      %th Birthday
+      %th Actions
+  %tbody
+    - @scammers.each do |scammer|
+      %tr
+        %td=scammer.name
+        %td=scammer.licence
+        %td=scammer.sexual_orientation
+        %td=scammer.birthday
+        %td
+          = link_to 'Show', [:admin, scammer]
+          = link_to 'Edit', edit_admin_scammer_path(scammer)
+          = link_to 'Destroy', [:admin, scammer], method: :delete, data: { confirm: 'Are you sure?' }
+
