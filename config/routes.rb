@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   namespace :admin do 
-    resources :scammers
+    resources :scammers do
+      resources :images do 
+        
+      end
+      resources :documents 
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

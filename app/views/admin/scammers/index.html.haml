@@ -24,5 +24,7 @@
         %td
           = link_to 'Show', [:admin, scammer]
           = link_to 'Edit', edit_admin_scammer_path(scammer)
+          = link_to 'Attach Photo', new_admin_scammer_image_path(scammer), method: :patch
+          = link_to 'Attach documents', '#'
           = link_to 'Destroy', [:admin, scammer], method: :delete, data: { confirm: 'Are you sure?' }
 

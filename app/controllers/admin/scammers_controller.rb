@@ -61,15 +61,5 @@ class Admin::ScammersController < Admin::AdminController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_scammer
-      @scammer = Scammer.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def scammer_params
-      params.require(:scammer).permit(:name, :licence, :sexual_orientation, :birthday, :address)
-      # params[:scammer]
-    end
 end

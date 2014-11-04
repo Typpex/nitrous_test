@@ -1,0 +1,1 @@
+Rails.application.config.assets.precompile += %w( fileupload-ui/main.css fileupload-ui/*.js vendor/jquery.ui.widget.js )

@@ -13,4 +13,6 @@
 #
 
 class Scammer < ActiveRecord::Base
+  has_many :documents
+  has_one :photo, class_name: 'Image'
 end
