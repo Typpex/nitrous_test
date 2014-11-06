@@ -30,6 +30,7 @@ group :development do
   gem 'spring'
   gem "better_errors"
   gem "binding_of_caller"
+  gem "byebug"
 end
 
 # Use ActiveModel has_secure_password

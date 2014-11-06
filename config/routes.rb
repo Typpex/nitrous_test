@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :admin do 
     resources :scammers do
-      resources :images do 
-        
+      resources :images do
+        collection do  
+          post "upload"        
+        end
       end
       resources :documents 
     end
