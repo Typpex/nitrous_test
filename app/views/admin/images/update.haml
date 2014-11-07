@@ -6,7 +6,7 @@
       %span.btn.btn-success.fileinput-button
         %i.glyphicon.glyphicon-plus
         %span Add files...
-        %input{:multiple => "multiple", :name => "files[]", :type => "file"}/
+        %input{type: :file, name: "files"}(multiple)
       %button.btn.btn-primary.start{:type => "submit"}
         %i.glyphicon.glyphicon-upload
         %span Start upload
