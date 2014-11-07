@@ -11,8 +11,8 @@ class Image < ActiveRecord::Base
     to_return = {}
     to_return["name"] = self.file.original_filename
     to_return["size"] = self.file.size
-    to_return["thumbnailUrl"]= "http://localhost:3000/" + self.file.url(:thumb).gsub("//thumb","/thumb")
-    to_return["url"]= "http://localhost:3000/" + self.file.url.gsub("//original","/original")
+    to_return["thumbnailUrl"]= self.file.url(:thumb)
+    to_return["url"]= self.file.url
     to_return["deleteUrl"]= ""
     to_return["deleteType"]= "DELETE"
     to_return

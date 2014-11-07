@@ -1,5 +1,6 @@
 %p{id: "notice"}
   =notice
-
+%h2 Photo
+= image_tag @scammer.photo.file.url
 = link_to 'Edit', edit_admin_scammer_path(@scammer)
 = link_to 'Back', admin_scammers_path
