@@ -1,35 +1,35 @@
-<!DOCTYPE html>
+!!!
 %html
-%head
-  %title Scamsearch
-  = stylesheet_link_tag 'application', media: 'all'
-  = javascript_include_tag 'application', :defer => "defer"
-  = csrf_meta_tags
+  %head
+    %title Scamsearch
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application', :defer => "defer"
+    = csrf_meta_tags
 
-%body
-  #layout
-    / Menu toggle
-    %a#menuLink.menu-link{:href => "#menu"}
-      / Hamburger icon
-      %span
-    #menu
-      .pure-menu.pure-menu-open
-        %a.pure-menu-heading{:href => root_path}Unknown
-        %ul
-          %li.menu-item-divided.pure-menu-selected
-            =link_to "List scammers", admin_scammers_path
-          %li
-            %a{:href => new_admin_scammer_path} Upload profile
-          %li
-            %a{:href => "#"} Pending validation
-          %li
-            %a{:href => "#"} Users
-    #main
-      .header
-        %h1= yield :page_title if content_for? :page_title
-        %h2= yield :page_subtitle if content_for? :page_subtitle
-      .content
-        = yield
+  %body
+    #layout
+      / Menu toggle
+      %a#menuLink.menu-link{:href => "#menu"}
+        / Hamburger icon
+        %span
+      #menu
+        .pure-menu.pure-menu-open
+          %a.pure-menu-heading{:href => authenticated_root_path}Unknown
+          %ul
+            %li.menu-item-divided.pure-menu-selected
+              =link_to "List scammers", admin_scammers_path
+            %li
+              %a{:href => new_admin_scammer_path} Upload profile
+            %li
+              %a{:href => "#"} Pending validation
+            %li
+              %a{:href => "#"} Users
+      #main
+        .header
+          %h1= yield :page_title if content_for? :page_title
+          %h2= yield :page_subtitle if content_for? :page_subtitle
+        .content
+          = yield
 
-#footer
- 
+  #footer
+   

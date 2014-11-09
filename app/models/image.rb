@@ -7,6 +7,10 @@ class Image < ActiveRecord::Base
   url: "system/:class/:attachment/:id_partition/:style/:filename"
   validates_attachment_content_type :file, :content_type => /^image\/(png|gif|jpeg|jpg)/
 
+  Paperclip.interpolates :host do |attachment, style|
+    "http://localhost:3000"
+  end
+
   def to_json
     to_return = {}
     to_return["name"] = self.file.original_filename

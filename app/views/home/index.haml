@@ -1,0 +1,11 @@
+.splash-container
+  .splash
+    %h1.splash-head
+      =form_tag user_session_path do
+        .form-group
+          %label{:for => "exampleInputEmail1"} Email address
+          %input.form-control{:placeholder => "Enter email", :type => "email", name: "user[email]"}/
+        .form-group
+          %label{:for => "exampleInputPassword1"} Password
+          %input.form-control{:placeholder => "Password", :type => "password", name: "user[password]"}/
+        %button.btn.btn-default{:type => "submit"} Submit

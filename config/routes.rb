@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  authenticated :user do
+    root 'admin/scammers#index', as: :authenticated_root
+  end
+
+  unauthenticated :user do
+    root 'home#index', as: :unauthenticated_root
+  end
+
   namespace :admin do 
     resources :scammers do
       resources :images do
@@ -15,7 +24,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  #root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

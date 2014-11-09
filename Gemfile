@@ -33,6 +33,9 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "byebug"
+  gem 'guard-minitest'
+  gem 'guard'
+  gem 'quiet_assets'
 end
 
 # Use ActiveModel has_secure_password
@@ -57,3 +60,10 @@ gem 'jquery-fileupload-rails'
 gem 'aws-sdk-v1'
 
 gem 'devise'
+
+group :test do
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
+  gem 'minitest-reporters'
+  gem "faker"
+end

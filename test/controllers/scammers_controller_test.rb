@@ -1,49 +1,39 @@
-require 'test_helper'
+require "test_helper"
 
-class ScammersControllerTest < ActionController::TestCase
-  setup do
-    @scammer = scammers(:one)
-  end
-
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:scammers)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create scammer" do
-    assert_difference('Scammer.count') do
-      post :create, scammer: {  }
+describe Admin::ScammersController do
+  describe "GET index" do 
+    before do 
+      get :index
     end
 
-    assert_redirected_to scammer_path(assigns(:scammer))
-  end
-
-  test "should show scammer" do
-    get :show, id: @scammer
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @scammer
-    assert_response :success
-  end
-
-  test "should update scammer" do
-    patch :update, id: @scammer, scammer: {  }
-    assert_redirected_to scammer_path(assigns(:scammer))
-  end
-
-  test "should destroy scammer" do
-    assert_difference('Scammer.count', -1) do
-      delete :destroy, id: @scammer
+    it "renders admin/scammers/index" do 
+      must_render_template "admin/scammers/index"
     end
 
-    assert_redirected_to scammers_path
+    it "responds with success" do 
+      must_respond_with :success
+    end
+
+    it "must contains at least one scammer" do 
+      assert_equal 1, assigns(:scammers).size
+    end
+ 
+    it "must destroy the given scammer" do 
+      assert_routing({method: "delete", path: "admin/scammers/1"}, {controller: "admin/scammers", action: "destroy", id: "1"})
+      assert_difference "Scammer.count", -1 do 
+        delete :destroy, id: "#{assigns(:scammers).first.id}"
+      end
+    end
+
+    it "create a scammer" do 
+      assert_difference "Scammer.count", 1 do
+        post :create, {scammer: {name: Faker::Name.name }}
+      end
+    end
+
+    it "edit a scammer" do 
+      scammer = Scammer.first
+      patch :update, {id: scammer.id, scammer: {name: Faker::Name.name, licence: "test"}}
+    end
   end
 end

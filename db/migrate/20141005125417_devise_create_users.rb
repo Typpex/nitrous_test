@@ -5,7 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :name, null: false
       
       ##Validation
-      t.boolean :valid, default: false, null: false
+      t.boolean :validated, default: false, null: false
       
       ## Database authenticatable
       t.string :email,              null: false, default: ""

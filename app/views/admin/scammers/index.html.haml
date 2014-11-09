@@ -6,7 +6,7 @@
 =content_for :page_subtitle do
   Here you can browse through the list of scammer already validated.
 
-%table
+%table.table
   %thead
     %tr
       %th Name
@@ -24,7 +24,7 @@
         %td
           = link_to 'Show', [:admin, scammer]
           = link_to 'Edit', edit_admin_scammer_path(scammer)
-          = link_to 'Attach Photo', new_admin_scammer_image_path(scammer), method: :patch
+          = link_to 'Attach Photo', admin_scammer_images_path(scammer)
           = link_to 'Attach documents', '#'
           = link_to 'Destroy', [:admin, scammer], method: :delete, data: { confirm: 'Are you sure?' }
 

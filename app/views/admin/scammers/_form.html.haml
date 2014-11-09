@@ -1,22 +1,28 @@
-= form_for([:admin, @scammer]) do |f|
+= form_for([:admin, @scammer], html: { class: "form-horizontal"}) do |f|  
   - if @scammer.errors.any?
     #error_explanation
       %h2= pluralize(@scammer.errors.count, "error")
       -@scammer.errors.full_messages.each do |message|
         = message
-        
-  =f.label :name
-  =f.text_field :name
-  %br
-  =f.label :licence
-  =f.text_field :licence
-  %br
-  =f.label :sexual_orientation
-  =select_tag :sexual_orientation, options_for_select([ "straight","bi-sexual", "etc.." ], "Sexual orientation")
-  %br
-  =f.label :birthday
-  =f.date_select :birthday,  order: [:day, :month, :year]
-  %br
-  .actions
-    = f.submit
-  
+  .form-group
+    =f.label :name, class: "col-sm-2 control-label"
+    .col-sm-6
+      =f.text_field :name, class: "form-control"
+  .form-group  
+    =f.label :licence, class: "col-sm-2 control-label"
+    .col-sm-6
+      =f.text_field :licence, class: "form-control"
+  .form-group  
+    =f.label :sexual_orientation, class: "col-sm-2 control-label"
+    .col-sm-6
+      =select_tag :sexual_orientation, options_for_select([ "straight","bi-sexual", "etc.." ], "Sexual orientation"), class: "form-control"
+  .form-group  
+    =f.label :birthday, class: "col-sm-2 control-label"
+    .col-sm-6
+      =f.date_select :birthday,  order: [:day, :month, :year], class: "form-control"
+    %br
+    .actions
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          = f.submit "Submit", class: "btn btn-default"
+    

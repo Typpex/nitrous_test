@@ -42,7 +42,7 @@ class Admin::ScammersController < Admin::AdminController
   def update
     respond_to do |format|
       if @scammer.update(scammer_params)
-        format.html { redirect_to @scammer, notice: 'Scammer was successfully updated.' }
+        format.html { redirect_to [:admin, @scammer], notice: 'Scammer was successfully updated.' }
         format.json { render :show, status: :ok, location: @scammer }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::ScammersController < Admin::AdminController
   def destroy
     @scammer.destroy
     respond_to do |format|
-      format.html { redirect_to scammers_url, notice: 'Scammer was successfully destroyed.' }
+      format.html { redirect_to admin_scammers_path, notice: 'Scammer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,7 +1,16 @@
+%h3 Current photo
+%p
+  -if @scammer && @scammer.photo
+    %img{src: "/#{@scammer.photo.file.url(:medium)}"}
+    %br
+    =link_to "Download", "/#{@scammer.photo.file.url}", taget: "_blank"
+    %br
+    =link_to "Delete", [:admin, @scammer, @scammer.photo], method: :delete
+
 %form#fileupload{:action => upload_admin_scammer_images_url, :enctype => "multipart/form-data", :method => "POST", style: "width: 900px;"}
   / The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
   .row.fileupload-buttonbar
-    .col-lg-8
+    .col-lg-9
       / The fileinput-button span is used to style the file input field as button
       %span.btn.btn-success.fileinput-button
         %i.glyphicon.glyphicon-plus
@@ -13,7 +22,6 @@
       %button.btn.btn-warning.cancel{:type => "reset"}
         %i.glyphicon.glyphicon-ban-circle
         %span Cancel upload
-      %input.toggle{:type => "checkbox"}/
       / The global file processing state
       %span.fileupload-process
     / The global progress state
