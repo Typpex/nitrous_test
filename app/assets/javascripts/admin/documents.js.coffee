@@ -2,10 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
 # Initialize the jQuery File Upload widget:
 $ ->
-  $('#fileupload-image').fileupload
-      url: $('form').attr('action'),
-      limitMultiFileUploads: 1
+  $('#fileupload-documents').fileupload
+      url: $('form').attr('action')
 
+$ ->
+  $("#fileupload").bind "fileuploaddone", (e, data) ->
+    eval(data)

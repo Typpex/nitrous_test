@@ -3,6 +3,9 @@
   =surround '(',')' do 
     =Scammer.count
 
+=content_for :title do
+  Scammers index page
+
 =content_for :page_subtitle do
   Here you can browse through the list of scammer already validated.
 
@@ -22,9 +25,14 @@
         %td=scammer.sexual_orientation
         %td=scammer.birthday
         %td
-          = link_to 'Show', [:admin, scammer]
-          = link_to 'Edit', edit_admin_scammer_path(scammer)
-          = link_to 'Attach Photo', admin_scammer_images_path(scammer)
-          = link_to 'Attach documents', '#'
-          = link_to 'Destroy', [:admin, scammer], method: :delete, data: { confirm: 'Are you sure?' }
+          %a{href: admin_scammer_path(scammer), title: "Show"}
+            %i.glyphicon.glyphicon-zoom-in
+          %a{href: edit_admin_scammer_path(scammer), title: "Edit"}
+            %i.glyphicon.glyphicon-pencil
+          %a{href: admin_scammer_images_path(scammer), title: "Upload photo"}
+            %i.glyphicon.glyphicon-camera
+          %a{href: admin_scammer_documents_path(scammer), title: "Upload files"}
+            %i.glyphicon.glyphicon-cloud-upload
+          %a{href: admin_scammer_path(scammer), "data-method" => "delete", title: "Delete"}
+            %i.glyphicon.glyphicon-trash
 

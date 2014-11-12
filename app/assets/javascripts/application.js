@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require fileupload-ui/main
 //= require_directory .
+//= require_directory ./admin

@@ -15,7 +15,7 @@
   .form-group  
     =f.label :sexual_orientation, class: "col-sm-2 control-label"
     .col-sm-6
-      =select_tag :sexual_orientation, options_for_select([ "straight","bi-sexual", "etc.." ], "Sexual orientation"), class: "form-control"
+      =select_tag :sexual_orientation, options_for_select([ "straight","bi-sexual", "etc.." ], "Sexual orientation"), class: "form-control", name: "scammer[sexual_orientation]"
   .form-group  
     =f.label :birthday, class: "col-sm-2 control-label"
     .col-sm-6

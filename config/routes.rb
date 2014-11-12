@@ -16,7 +16,11 @@ Rails.application.routes.draw do
           post "upload"        
         end
       end
-      resources :documents 
+      resources :documents do
+        collection do 
+          post "upload"
+        end
+      end
     end
   end
 

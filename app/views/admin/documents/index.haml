@@ -1,12 +1,9 @@
-%h3 Current photo
-%p
-  -if @scammer && @scammer.photo
-    %img{src: "#{@scammer.photo.file.url(:medium)}"}
-    %br
-    =link_to "Download", "/#{@scammer.photo.file.url}", target: "_blank"
-    =link_to "Delete", [:admin, @scammer, @scammer.photo], method: :delete
+=content_for :title do
+  Documents about
+  =scammer.name
+%h3 Documents
 
-%form#fileupload-image{:action => upload_admin_scammer_images_url, :enctype => "multipart/form-data", :method => "POST", style: "width: 900px;"}
+%form#fileupload-documents{:action => upload_admin_scammer_documents_url, :enctype => "multipart/form-data", :method => "POST", style: "width: 900px;"}
   / The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
   .row.fileupload-buttonbar
     .col-lg-9

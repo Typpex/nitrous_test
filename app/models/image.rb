@@ -4,7 +4,7 @@ class Image < ActiveRecord::Base
   storage: :filesystem,
   styles: { :medium => "500x500>", :thumb => "100x100>" },
   path: ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
-  url: "system/:class/:attachment/:id_partition/:style/:filename"
+  url: ":host/system/:class/:attachment/:id_partition/:style/:filename"
   validates_attachment_content_type :file, :content_type => /^image\/(png|gif|jpeg|jpg)/
 
   Paperclip.interpolates :host do |attachment, style|
