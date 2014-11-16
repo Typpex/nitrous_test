@@ -1,24 +1,19 @@
 class Admin::DocumentsController < Admin::AdminController
   expose :scammer
+  respond_to(:html, :js)
   def index
     @documents = scammer.documents
+    respond_with(@documents)
   end
 
   def upload
-    doc = Document.new
-    doc.file = params[:files]
-    if doc.save
-      scammer.documents << doc
-      respond_to do |format|
-        format.js do 
-          render js: "document_uploaded"
-        end
-      end
+    @doc = Document.new
+    @doc.file = params[:files]
+    if @doc.save
+      scammer.documents << @doc
+      respond_with(@doc)
     else
-      byebug
-      respond_to do |format|
-        render js: "document_uploaded"
-      end
+      respond_with(scammer)
     end
 
   end

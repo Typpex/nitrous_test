@@ -1,5 +1,4 @@
 class Admin::ImagesController < Admin::AdminController
-  
   def new
   end
 

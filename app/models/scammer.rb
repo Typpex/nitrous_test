@@ -13,6 +13,6 @@
 #
 
 class Scammer < ActiveRecord::Base
-  has_many :documents
-  has_one :photo, class_name: 'Image'
+  has_many :documents, dependent: :destroy
+  has_one :photo, class_name: 'Image', dependent: :destroy
 end
