@@ -19,7 +19,7 @@
   .form-group  
     =f.label :birthday, class: "col-sm-2 control-label"
     .col-sm-6
-      =f.date_select :birthday,  order: [:day, :month, :year], class: "form-control"
+      =f.date_select :birthday,  {order: [:day, :month, :year], start_year: 1900, end_year: 2000}, {class: "form-control"}
     %br
     .actions
       .form-group

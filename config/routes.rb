@@ -10,19 +10,26 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do 
+
     resources :scammers do
       resources :images do
         collection do  
           post "upload"        
         end
       end
+
       resources :documents do
         collection do 
           post "upload"
         end
       end
+
     end
+    resources :users
+    
   end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

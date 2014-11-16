@@ -9,14 +9,13 @@
 =content_for :page_subtitle do
   Here you can browse through the list of scammer already validated.
 
-%table.table
+%table.table.datatable
   %thead
-    %tr
-      %th Name
-      %th Licence
-      %th Sexual Orientation
-      %th Birthday
-      %th Actions
+    %th Name
+    %th Licence
+    %th Sexual Orientation
+    %th Birthday
+    %th Actions
   %tbody
     - @scammers.each do |scammer|
       %tr

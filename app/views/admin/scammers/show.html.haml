@@ -1,7 +1,30 @@
-%p{id: "notice"}
-  =notice
--if @scammer.photo
-  %h2 Photo
-  %img{src: @scammer.photo.file.url}
-= link_to 'Edit', edit_admin_scammer_path(@scammer)
-= link_to 'Back', admin_scammers_path
+.container
+  %p{id: "notice"}
+    =notice
+  -if @scammer.photo
+    %h2 Photo
+    .img.centered-text{style: circular(@scammer.photo.file.url(:medium))}
+
+  %div{role: 'tabpanel'}
+    %ul.nav.nav-tabs{role: 'tablist'}
+      %li.active{role: 'presentation'}
+        =link_to "Details", "#home", "data-toggle" => "tab"
+      %li{role: 'presentation'}
+        =link_to "Documents", "#documents", "data-toggle" => "tab"
+  .tab-content
+    #home.tab-pane.active
+      %ul
+        %li=@scammer.name
+        %li=@scammer.licence
+        %li=@scammer.sexual_orientation
+        %li=@scammer.birthday
+        %li=@scammer.address
+        %li=@scammer.created_at
+    #documents.tab-pane
+      %table
+        %tbody
+          -@scammer.documents.each do |document|
+            %tr
+              %td=link_to document.file_file_name, document.file.url
+  = link_to 'Edit', edit_admin_scammer_path(@scammer)
+  = link_to 'Back', admin_scammers_path

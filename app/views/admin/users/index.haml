@@ -1,0 +1,24 @@
+=content_for :page_title do
+  Listing scammers
+  =surround '(',')' do 
+    =User.count
+
+=content_for :title do
+  Users index page
+
+=content_for :page_subtitle do
+  Here you can browse the list of users.
+
+%table.table.datatable-users
+  %thead
+    %th Name
+    %th Subscription Date
+    %th Role
+    %th Actions
+  %tbody
+    -@users.each do |user|
+      %tr
+        %td=user.name
+        %td=user.created_at
+        %td XXXX
+        %td to do

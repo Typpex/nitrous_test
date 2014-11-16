@@ -18,7 +18,7 @@
         %span
       #menu
         .pure-menu.pure-menu-open
-          %a.pure-menu-heading{:href => authenticated_root_path}Unknown
+          %a.pure-menu-heading{:href => authenticated_root_path}Website name
           %ul
             %li{class: request.path == ("/admin/scammers" || "/") ? "pure-menu-selected" : nil}
               =link_to "List scammers", admin_scammers_path
@@ -27,7 +27,7 @@
             %li
               %a{:href => "#"} Pending validation
             %li
-              %a{:href => "#"} Users
+              %a{:href => admin_users_path} Users
             %li
               =link_to "Logout", destroy_user_session_path, method: :delete
       #main
