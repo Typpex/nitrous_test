@@ -20,9 +20,13 @@
     =f.label :birthday, class: "col-sm-2 control-label"
     .col-sm-6
       =f.date_select :birthday,  {order: [:day, :month, :year], start_year: 1900, end_year: 2000}, {class: "form-control"}
-    %br
-    .actions
-      .form-group
-        .col-sm-offset-2.col-sm-10
-          = f.submit "Submit", class: "btn btn-default"
+  .form-group  
+    =f.label :address, class: "col-sm-2 control-label"
+    .col-sm-6
+      =f.text_area :address, cols: 57
+  %br
+  .actions
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = f.submit "Submit", class: "btn btn-default"
     

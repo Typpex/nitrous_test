@@ -12,7 +12,7 @@
 %table.table.datatable
   %thead
     %th Name
-    %th Licence
+    %th License
     %th Sexual Orientation
     %th Birthday
     %th Actions
@@ -22,7 +22,7 @@
         %td=scammer.name
         %td=scammer.licence
         %td=scammer.sexual_orientation
-        %td=scammer.birthday
+        %td=scammer.birthday.to_s(:long)
         %td
           %a{href: admin_scammer_path(scammer), title: "Show"}
             %i.glyphicon.glyphicon-zoom-in

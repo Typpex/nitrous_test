@@ -26,7 +26,7 @@
               %a{:href => new_admin_scammer_path} Upload profile
             %li
               %a{:href => "#"} Pending validation
-            %li
+            %li{class: request.path == "/admin/users" ? "pure-menu-selected" : nil}
               %a{:href => admin_users_path} Users
             %li
               =link_to "Logout", destroy_user_session_path, method: :delete

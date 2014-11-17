@@ -14,12 +14,24 @@
   .tab-content
     #home.tab-pane.active
       %ul
-        %li=@scammer.name
-        %li=@scammer.licence
-        %li=@scammer.sexual_orientation
-        %li=@scammer.birthday
-        %li=@scammer.address
-        %li=@scammer.created_at
+        %li
+          Name: 
+          =@scammer.name
+        %li
+          License
+          =@scammer.licence
+        %li
+          Sexual orientation
+          =@scammer.sexual_orientation
+        %li
+          Birthday
+          =@scammer.birthday
+        %li
+          Address
+          =@scammer.address
+        %li
+          Subscription
+          =@scammer.created_at.to_s(:short)
     #documents.tab-pane
       %table
         %tbody
