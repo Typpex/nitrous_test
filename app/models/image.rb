@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  belongs_to :scammer
+  belongs_to :employee
   has_attached_file :file, 
   storage: :filesystem,
   styles: { :medium => "500x500>", :thumb => "100x100>" },

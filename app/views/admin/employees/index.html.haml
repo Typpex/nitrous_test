@@ -1,0 +1,37 @@
+=content_for :page_title do
+  Listing employees
+  =surround '(',')' do 
+    =Employee.count
+
+=content_for :title do
+  Employees index page
+
+=content_for :page_subtitle do
+  Here you can browse through the list of employee already validated.
+
+%table.pure-table.datatable
+  %thead
+    %th Name
+    %th License
+    %th Sexual Orientation
+    %th Birthday
+    %th Actions
+  %tbody
+    - @employees.each do |employee|
+      %tr
+        %td=employee.name
+        %td=employee.licence
+        %td=employee.sexual_orientation
+        %td=employee.birthday.to_s(:long)
+        %td
+          %a{href: admin_employee_path(employee), title: "Show"}
+            %i.glyphicon.glyphicon-zoom-in
+          %a{href: edit_admin_employee_path(employee), title: "Edit"}
+            %i.glyphicon.glyphicon-pencil
+          %a{href: admin_employee_images_path(employee), title: "Upload photo"}
+            %i.glyphicon.glyphicon-camera
+          %a{href: admin_employee_documents_path(employee), title: "Upload files"}
+            %i.glyphicon.glyphicon-cloud-upload
+          %a{href: admin_employee_path(employee), "data-method" => "delete", title: "Delete"}
+            %i.glyphicon.glyphicon-trash
+

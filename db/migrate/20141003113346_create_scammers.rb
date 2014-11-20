@@ -1,6 +1,6 @@
-class CreateScammers < ActiveRecord::Migration
+class CreateEmployees < ActiveRecord::Migration
   def change
-    create_table :scammers do |t|
+    create_table :employees do |t|
       t.string :name
       t.string :licence
       t.string :sexual_orientation

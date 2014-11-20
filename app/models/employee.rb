@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: scammers
+# Table name: employees
 #
 #  id                 :integer          not null, primary key
 #  name               :string(255)
@@ -12,7 +12,7 @@
 #  updated_at         :datetime
 #
 
-class Scammer < ActiveRecord::Base
-  has_many :documents, dependent: :destroy
+class Employee < ActiveRecord::Base
+  has_many :documents, inverse_of: :employee, dependent: :destroy
   has_one :photo, class_name: 'Image', dependent: :destroy
 end

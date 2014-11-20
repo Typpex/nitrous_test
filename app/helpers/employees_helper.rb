@@ -1,4 +1,4 @@
-module ScammersHelper
+module EmployeesHelper
   def circular(picture_url)
     style = %Q{
       width: 300px;

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user do
-    root 'admin/scammers#index', as: :authenticated_root
+    root 'admin/employees#index', as: :authenticated_root
   end
 
   unauthenticated :user do
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do 
 
-    resources :scammers do
+    resources :employees do
       resources :images do
         collection do  
           post "upload"        

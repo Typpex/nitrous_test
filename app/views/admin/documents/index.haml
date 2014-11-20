@@ -1,6 +1,6 @@
 =content_for :title do
   Documents about
-  =scammer.name
+  =employee.name
 %h3 Documents
 
 %table.table
@@ -11,14 +11,14 @@
       %th Size
       %th Submition Date
   %tbody
-    -scammer.documents.each do |d|
+    -employee.documents.each do |d|
       %tr
         %td=d.file_file_name
         %td=d.file_content_type
         %td=d.file_file_size
         %td=d.created_at
 
-%form#fileupload-documents{:action => upload_admin_scammer_documents_url, :enctype => "multipart/form-data", :method => "POST", style: "width: 900px;"}
+%form#fileupload-documents{:action => upload_admin_employee_documents_url, :enctype => "multipart/form-data", :method => "POST", style: "width: 900px;"}
   / The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
   .row.fileupload-buttonbar
     .col-lg-9

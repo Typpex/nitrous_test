@@ -3,21 +3,21 @@ class Admin::ImagesController < Admin::AdminController
   end
 
   def index
-    @scammer = set_scammer
+    @employee = set_employee
   end
 
   def create 
   end
 
   def update
-    @scammer = set_scammer
+    @employee = set_employee
     @photo = Image.new
   end
 
   def upload
     img = Image.new
-    scammer = Scammer.find(params[:scammer_id])
-    img.scammer = scammer
+    employee = Employee.find(params[:employee_id])
+    img.employee = employee
     img.file = params[:files]
     img.save
     response = {"files" => []}
@@ -30,11 +30,11 @@ class Admin::ImagesController < Admin::AdminController
   end
 
   def destroy
-    scammer = Scammer.find(params[:scammer_id])
-    if scammer.photo
-      scammer.photo.destroy
+    employee = Employee.find(params[:employee_id])
+    if employee.photo
+      employee.photo.destroy
     end
-    redirect_to admin_scammer_images_path(scammer)
+    redirect_to admin_employee_images_path(employee)
   end
 
 end

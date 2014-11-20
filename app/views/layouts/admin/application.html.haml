@@ -20,10 +20,10 @@
         .pure-menu.pure-menu-open
           %a.pure-menu-heading{:href => authenticated_root_path}Website name
           %ul
-            %li{class: request.path == ("/admin/scammers" || "/") ? "pure-menu-selected" : nil}
-              =link_to "List scammers", admin_scammers_path
-            %li{class: request.path == "/admin/scammers/new" ? "pure-menu-selected" : nil}
-              %a{:href => new_admin_scammer_path} Upload profile
+            %li{class: request.path == ("/admin/employees" || "/") ? "pure-menu-selected" : nil}
+              =link_to "List employees", admin_employees_path
+            %li{class: request.path == "/admin/employees/new" ? "pure-menu-selected" : nil}
+              %a{:href => new_admin_employee_path} Submit employee
             %li
               %a{:href => "#"} Pending validation
             %li{class: request.path == "/admin/users" ? "pure-menu-selected" : nil}

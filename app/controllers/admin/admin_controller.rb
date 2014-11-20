@@ -7,18 +7,18 @@ class Admin::AdminController < ActionController::Base
 
   private
   # Use callbacks to share common setup or constraints between actions.
-  def set_scammer
-    if params.has_key? :scammer_id
-      @scammer = Scammer.find(params[:scammer_id])
+  def set_employee
+    if params.has_key? :employee_id
+      @employee = Employee.find(params[:employee_id])
     else
-      @scammer = Scammer.find(params[:id])
+      @employee = Employee.find(params[:id])
     end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def scammer_params
-    params.require(:scammer).permit(:name, :licence, :sexual_orientation, :birthday, :address)
-    # params[:scammer]
+  def employee_params
+    params.require(:employee).permit(:name, :licence, :sexual_orientation, :birthday, :address)
+    # params[:employee]
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

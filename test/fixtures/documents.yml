@@ -4,8 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
+excel_file:
+  file_file_name: "test.xlsx"
+  file_content_type: "vnd/xlsx"
+  file_file_size: 1290
+  employee: one
+
+orphan_document:
+  file_file_name: "test_orphan.xlsx"
+  file_content_type: "application/xlsx"
+  file_file_size: 99
 #  column: value

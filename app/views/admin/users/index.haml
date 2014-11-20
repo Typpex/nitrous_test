@@ -1,5 +1,5 @@
 =content_for :page_title do
-  Listing scammers
+  Listing employees
   =surround '(',')' do 
     =User.count
 
@@ -9,7 +9,7 @@
 =content_for :page_subtitle do
   Here you can browse the list of users.
 
-%table.table.datatable-users
+%table.pure-table.datatable-users
   %thead
     %th Name
     %th Subscription Date

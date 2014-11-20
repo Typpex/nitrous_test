@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20141101053100) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.integer  "scammer_id"
+    t.integer  "employee_id"
   end
 
   create_table "images", force: true do |t|
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20141101053100) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.integer  "scammer_id"
+    t.integer  "employee_id"
   end
 
-  create_table "scammers", force: true do |t|
+  create_table "employees", force: true do |t|
     t.string   "name"
     t.string   "licence"
     t.string   "sexual_orientation"
