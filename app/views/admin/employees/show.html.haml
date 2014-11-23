@@ -1,7 +1,7 @@
 .container
-  -if @employee.photo
+  -if employee.photo
     %h2 Photo
-    .img.centered-text{style: circular(@employee.photo.file.url(:medium))}
+    .img.centered-text{style: circular(employee.photo.file.url(:medium))}
 
   %div{role: 'tabpanel'}
     %ul.nav.nav-tabs{role: 'tablist'}
@@ -14,27 +14,27 @@
       %ul
         %li
           Name: 
-          =@employee.name
+          =employee.name
         %li
           License:
-          =@employee.licence
+          =employee.licence
         %li
           Sexual orientation:
-          =@employee.sexual_orientation
+          =employee.sexual_orientation
         %li
           Birthday:
-          =@employee.birthday
+          =employee.birthday
         %li
           Address:
-          =@employee.address
+          =employee.address
         %li
           Subscription:
-          =@employee.created_at.to_s(:short)
+          =employee.created_at.to_s(:short)
     #documents.tab-pane
       %table
         %tbody
-          -@employee.documents.each do |document|
+          -employee.documents.each do |document|
             %tr
               %td=link_to document.file_file_name, document.file.url
-  = link_to 'Edit', edit_admin_employee_path(@employee)
+  = link_to 'Edit', edit_admin_employee_path(employee)
   = link_to 'Back', admin_employees_path

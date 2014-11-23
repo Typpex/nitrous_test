@@ -27,19 +27,20 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'bootstrap-sass'
 
-gem 'decent_exposure'
+gem 'adequate_exposure'
+
+gem 'pundit'
 
 gem 'jquery-datatables-rails', '~> 3.0.0'
 
 group :development do 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   gem "better_errors"
   gem "binding_of_caller"
   gem "byebug"
   gem 'guard-minitest'
   gem 'guard'
   gem 'quiet_assets'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
 end
 
 group :test do 
