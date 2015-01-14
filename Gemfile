@@ -44,7 +44,7 @@ group :development do
 end
 
 group :test do 
-  gem 'byebug'
+
 end
 
 # Use ActiveModel has_secure_password
@@ -70,8 +70,8 @@ gem 'aws-sdk-v1'
 
 gem 'devise'
 
+gem 'minitest-rails'
 group :test do
-  gem 'minitest-rails'
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
   gem "faker"
