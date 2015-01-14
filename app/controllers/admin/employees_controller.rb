@@ -2,14 +2,6 @@ class Admin::EmployeesController < Admin::AdminController
   expose :employee
   respond_to :html, :json
 
-  def authorize
-    if employee
-      authorize employee
-    else
-      authorize
-    end
-  end
-
   # GET /employees
   # GET /employees.json
   def index

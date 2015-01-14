@@ -29,7 +29,7 @@ gem 'bootstrap-sass'
 
 gem 'adequate_exposure'
 
-gem 'pundit'
+gem 'cancancan'
 
 gem 'jquery-datatables-rails', '~> 3.0.0'
 
