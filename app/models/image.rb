@@ -8,7 +8,7 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :file, :content_type => /^image\/(png|gif|jpeg|jpg)/
 
   Paperclip.interpolates :host do |attachment, style|
-    "http://localhost:3000"
+    ENV["WEBSITE"]
   end
 
   def to_json
