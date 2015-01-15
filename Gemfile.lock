@@ -255,7 +255,6 @@ DEPENDENCIES
   purecss-rails
   quiet_assets
   rails (= 4.1.6)
-  rb-fsevent
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   sqlite3
